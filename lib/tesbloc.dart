@@ -21,7 +21,7 @@ class _tesBlocState extends State<tesBloc> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bloc"),
+        title: Text("Bloc (not using bloc library yet)"),
       ),
       body: Center(
         child: Column(
@@ -51,11 +51,12 @@ class _tesBlocState extends State<tesBloc> {
                   },
                   child: Container(
                     width: 80,
-                    height: 30,
+                    height: 20,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.lightBlueAccent)),
                     child: Text(
                       "Red",
+                      textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.red),
                     ),
                   ),
@@ -69,11 +70,12 @@ class _tesBlocState extends State<tesBloc> {
                   },
                   child: Container(
                     width: 80,
-                    height: 30,
+                    height: 20,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.lightBlueAccent)),
                     child: Text(
                       "Green",
+                      textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.green),
                     ),
                   ),
@@ -85,14 +87,17 @@ class _tesBlocState extends State<tesBloc> {
                   onTap: () {
                     bloc.eventSink.add(ColorEvent.blue);
                   },
-                  child: Container(
-                    width: 80,
-                    height: 30,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.lightBlueAccent)),
-                    child: Text(
-                      "Blue",
-                      style: TextStyle(color: Colors.blue),
+                  child: Center(
+                    child: Container(
+                      width: 80,
+                      height: 20,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.lightBlueAccent)),
+                      child: Text(
+                        "Blue",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.blue),
+                      ),
                     ),
                   ),
                 ),
