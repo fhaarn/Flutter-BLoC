@@ -20,39 +20,85 @@ class _tesBlocState extends State<tesBloc> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          FloatingActionButton(
-              backgroundColor: Colors.lightGreen,
-              onPressed: () {
-                bloc.eventSink.add(ColorEvent.to_lg);
-              }),
-          SizedBox(
-            width: 10,
-          ),
-          FloatingActionButton(
-              backgroundColor: Colors.lightBlue,
-              onPressed: () {
-                bloc.eventSink.add(ColorEvent.to_lb);
-              }),
-        ],
-      ),
       appBar: AppBar(
         title: Text("Bloc"),
       ),
       body: Center(
-        child: StreamBuilder<Color>(
-          stream: bloc.stateStream,
-          initialData: Colors.lightGreen,
-          builder: (context, snapshot) {
-            return AnimatedContainer(
-              duration: Duration(milliseconds: 200),
-              width: 100,
-              height: 100,
-              color: snapshot.data,
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            StreamBuilder<Color>(
+              stream: bloc.stateStream,
+              initialData: Colors.lightGreen,
+              builder: (context, snapshot) {
+                return AnimatedContainer(
+                  duration: Duration(milliseconds: 200),
+                  width: 100,
+                  height: 100,
+                  color: snapshot.data,
+                );
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {
+                    bloc.eventSink.add(ColorEvent.red);
+                  },
+                  child: Container(
+                    width: 80,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.lightBlueAccent)),
+                    child: Text(
+                      "Red",
+                      style: TextStyle(color: Colors.red),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                InkWell(
+                  onTap: () {
+                    bloc.eventSink.add(ColorEvent.green);
+                  },
+                  child: Container(
+                    width: 80,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.lightBlueAccent)),
+                    child: Text(
+                      "Green",
+                      style: TextStyle(color: Colors.green),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                InkWell(
+                  onTap: () {
+                    bloc.eventSink.add(ColorEvent.blue);
+                  },
+                  child: Container(
+                    width: 80,
+                    height: 30,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.lightBlueAccent)),
+                    child: Text(
+                      "Blue",
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
         ),
       ),
     );
