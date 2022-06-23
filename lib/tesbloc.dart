@@ -22,6 +22,10 @@ class _tesBlocState extends State<tesBloc> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Bloc (not using bloc library yet)"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
       body: Center(
         child: Column(
